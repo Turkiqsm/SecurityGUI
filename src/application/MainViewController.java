@@ -4,367 +4,514 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.*;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTextArea;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
 
 import javafx.fxml.*;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 public class MainViewController implements Initializable{
-	
-	
-	
-	
-	@FXML
-	public JFXButton btn_OneTimePad, btn_PlayFair, btn_MonoAlphabetic, btn_Homophones, btn_VigenereCipher, btn_DES, btn_AES, btn_SHA1, btn_SHA521, btn_hmacLayout, btn_RSA, btn_DigitalEnvelopeLayout  ; 
-	
-	@FXML
-	public Label mainLable , description ;
-	
-	@FXML
-	public JFXButton encrypt_btn, decrypt_btn, hash_btn, hmac_btn, DigitalSignature_btn, save_btn ;
+
+	/* Go down and find your algorithm then follow the instruction */
 
 	@FXML
+	public JFXButton btn_OneTimePad, btn_PlayFair, btn_MonoAlphabetic, btn_Homophones, btn_VigenereCipher, btn_DES, btn_AES, btn_SHA1, btn_SHA521, btn_hmacLayout, btn_RSA, btn_DigitalEnvelopeLayout;
+	@FXML
+	public Label mainLable, description, key1_label, key2_label;
+	@FXML
+	public JFXButton encrypt_btn, decrypt_btn, hash_btn, hmac_btn, DigitalSignature_btn, save_btn;
+	@FXML
 	public JFXTextArea plainTextArea,cipherTextArea;
-	
-	@FXML 
-	public JFXTextField key1TextField, key2TextField ;
-	
-	
+	@FXML
+	public JFXTextField key1TextField, key2TextField;
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		
-	}
-	
-	@FXML public void encrypt(javafx.event.ActionEvent e) {
-		
-		//take what you need form these variables as an input for your encrypt function
-		String plainText = plainTextArea.getText();
-		String key1 = key1TextField.getText();
-		String key2 = key2TextField.getText();
-		
-		
-		String cipherText = " ";
-		switch (mainLable.getText()) {
-		case "One Time Pad":
-			//call your functions here then set the cipher text 
-			
-			
-			cipherText = "change this to your cipher text";
-			cipherTextArea.setText(cipherText);
-			
-			break;
-		case "PlayFair":
-			
-			//call your functions here then set the cipher text 
-			
-			
-			cipherText = "change this to your cipher text";
-			cipherTextArea.setText(cipherText);
-			break;
-		case "Mono-alphabetic":
-			//call your functions here then set the cipher text 
-			
-			
-			cipherText = "change this to your cipher text";
-			cipherTextArea.setText(cipherText);
-			break;
-		case "Homophones":
-			//call your functions here then set the cipher text 
-			
-			
-			cipherText = "change this to your cipher text";
-			cipherTextArea.setText(cipherText);
-			break;
-		case "Vigenere cipher":
-			//call your functions here then set the cipher text 
-			
-			
-			cipherText = "change this to your cipher text";
-			cipherTextArea.setText(cipherText);
-			break;
-		case "DES & triple DES":
-			//call your functions here then set the cipher text 
-			
-			
-			cipherText = "change this to your cipher text";
-			cipherTextArea.setText(cipherText);
-			break;
-		case "AES":
-			//call your functions here then set the cipher text 
-			
-			
-			cipherText = "change this to your cipher text";
-			cipherTextArea.setText(cipherText);
-			break;
-		case "SHA-1":
-			//call your functions here then set the cipher text 
-			
-			
-			cipherText = "change this to your cipher text";
-			cipherTextArea.setText(cipherText);
-			break;
-		case "SHA-512":
-			//call your functions here then set the cipher text 
-			
-			
-			cipherText = "change this to your cipher text";
-			cipherTextArea.setText(cipherText);
-			break;
-		case "HMAC":
-			//call your functions here then set the cipher text 
-			
-			
-			cipherText = "change this to your cipher text";
-			cipherTextArea.setText(cipherText);
-			break;
-		case "RSA":
-			//call your functions here then set the cipher text 
-			
-			
-			cipherText = "change this to your cipher text";
-			cipherTextArea.setText(cipherText);
-			break;
-		case "Digital Envelope ":
-			//call your functions here then set the cipher text 
-			
-			
-			cipherText = "change this to your cipher text";
-			cipherTextArea.setText(cipherText);
-			break;
-		default:
-			break;
-		}
+		btn_OneTimePad.fire();
 	}
 
-@FXML public void decrypt(javafx.event.ActionEvent e) {
-		
-		//take what you need form these variables as an input for your decrypt function
-		String cipherText = cipherTextArea.getText();
-		String key1 = key1TextField.getText();
-		String key2 = key2TextField.getText();
-		
-		
-		String plainText = " ";
-		switch (mainLable.getText()) {
-		case "One Time Pad":
-			//call your functions here then set the plain Text
-			
-			
-			plainText = "change this to your plain Text";
-			plainTextArea.setText(plainText);
-			break;
-		case "PlayFair":
-			//call your functions here then set the plain Text
-			
-			
-			plainText = "change this to your plain Text";
-			plainTextArea.setText(plainText);
-			break;
-		case "Mono-alphabetic":
-			//call your functions here then set the plain Text
-			
-			
-			plainText = "change this to your plain Text";
-			plainTextArea.setText(plainText);
-			break;
-		case "Homophones":
-			//call your functions here then set the plain Text
-			
-			
-			plainText = "change this to your plain Text";
-			plainTextArea.setText(plainText);
-			break;
-		case "Vigenere cipher":
-			//call your functions here then set the plain Text
-			
-			
-			plainText = "change this to your plain Text";
-			plainTextArea.setText(plainText);
-			break;
-		case "DES & triple DES":
-			//call your functions here then set the plain Text
-			
-			
-			plainText = "change this to your plain Text";
-			plainTextArea.setText(plainText);
-			break;
-		case "AES":
-			//call your functions here then set the plain Text
-			
-			
-			plainText = "change this to your plain Text";
-			plainTextArea.setText(plainText);	
-			break;
-		case "SHA-1":
-			//call your functions here then set the plain Text
-			
-			
-			plainText = "change this to your plain Text";
-			plainTextArea.setText(plainText);
-			break;
-		case "SHA-512":
-			//call your functions here then set the plain Text
-			
-			
-			plainText = "change this to your plain Text";
-			plainTextArea.setText(plainText);
-			break;
-		case "HMAC":
-			//call your functions here then set the plain Text
-			
-			
-			plainText = "change this to your plain Text";
-			plainTextArea.setText(plainText);
-			break;
-		case "RSA":
-			//call your functions here then set the plain Text
-			
-			
-			plainText = "change this to your plain Text";
-			plainTextArea.setText(plainText);
-			break;
-		case "Digital Envelope ":
-			//call your functions here then set the plain Text
-			
-			
-			plainText = "change this to your plain Text";
-			plainTextArea.setText(plainText);
-			break;
-		default:
-			break;
-		}
-	}
-	
+	/* look for your algorithm */
 
-	public void setAllnotVisible() {
-		
-		
-		decrypt_btn.setVisible(false);
+	@FXML public void oneTimePad(javafx.event.ActionEvent e) {
+		mainLable.setText("One Time Pad");
+		/* Put your algorithm description and requirements */
+		description.setText("put your description here");
+
+		/* Show or hide the buttons and text fields your algorithm will use by setting the visibility to true or false */
 		encrypt_btn.setVisible(false);
+		decrypt_btn.setVisible(false);
 		hash_btn.setVisible(false);
 		hmac_btn.setVisible(false);
 		DigitalSignature_btn.setVisible(false);
+		key1TxtFieldSetVisible(false);
+		key2TxtFieldSetVisible(false);
+
+		/*
+		 *  You can set and get texts from the text fields using [ .setText( String ) - .getText() ]
+		 *  There's 4 text fields:
+		 *  plainTextArea
+		 *  cipherTextArea
+		 *  key1TextField
+		 *  key2TextField
+		 *
+		 */
+
+		/* Here create an object of your class so you can use your methods */
+
+		// After setting true to the buttons that you'll use set an action for that button(what the button will do after clicking it)
+		// Example:
+		encrypt_btn.setOnAction(new EventHandler<ActionEvent>() {
+	        @Override
+	        public void handle(ActionEvent event) {
+	        	 //String cipherText = yourEncryptonMethod(plainTextArea.getText());
+	        	 //cipherTextArea.setText(cipherText);
+	        }
+	    });
+
+
+
 	}
-	
-	
-	
-	
-	
-	@FXML public void oneTimePad(javafx.event.ActionEvent e) {
-		
-		mainLable.setText(btn_OneTimePad.getText());
-		setAllnotVisible();
-		
-		
-		description.setText("put your description here");
-		
-	}
-	
+
 	@FXML public void playFair(javafx.event.ActionEvent e) {
-		
-		mainLable.setText(btn_PlayFair.getText());
-		
+		mainLable.setText("PlayFair");
+		/* Put your algorithm description and requirements */
 		description.setText("put your description here");
-		
-		
-		
+
+		/* Show or hide the buttons and text fields your algorithm will use by setting the visibility to true or false */
+		encrypt_btn.setVisible(false);
+		decrypt_btn.setVisible(false);
+		hash_btn.setVisible(false);
+		hmac_btn.setVisible(false);
+		DigitalSignature_btn.setVisible(false);
+		key1TxtFieldSetVisible(false);
+		key2TxtFieldSetVisible(false);
+
+		/*
+		 *  You can set and get texts from the text fields using [ .setText( String ) - .getText() ]
+		 *  There's 4 text fields:
+		 *  plainTextArea
+		 *  cipherTextArea
+		 *  key1TextField
+		 *  key2TextField
+		 *
+		 */
+
+		/* Here create an object of your class so you can use your methods */
+
+		// After setting true to the buttons that you'll use set an action for that button(what the button will do after clicking it)
+		// Example:
+		encrypt_btn.setOnAction(new EventHandler<ActionEvent>() {
+	        @Override
+	        public void handle(ActionEvent event) {
+	        	 //String cipherText = yourEncryptonMethod(plainTextArea.getText());
+	        	 //cipherTextArea.setText(cipherText);
+	        }
+	    });
+
+
 	}
 
 	@FXML public void monoAlphabetic(javafx.event.ActionEvent e) {
-	
-	mainLable.setText(btn_MonoAlphabetic.getText());
-	
-	description.setText("put your description here");
-	
-	
-}
+		mainLable.setText("Mono-alphabetic");
+		/* Put your algorithm description and requirements */
+		description.setText("put your description here");
+
+		/* Show or hide the buttons and text fields your algorithm will use by setting the visibility to true or false */
+		encrypt_btn.setVisible(false);
+		decrypt_btn.setVisible(false);
+		hash_btn.setVisible(false);
+		hmac_btn.setVisible(false);
+		DigitalSignature_btn.setVisible(false);
+		key1TxtFieldSetVisible(false);
+		key2TxtFieldSetVisible(false);
+
+		/*
+		 *  You can set and get texts from the text fields using [ .setText( String ) - .getText() ]
+		 *  There's 4 text fields:
+		 *  plainTextArea
+		 *  cipherTextArea
+		 *  key1TextField
+		 *  key2TextField
+		 *
+		 */
+
+		/* Here create an object of your class so you can use your methods */
+
+		// After setting true to the buttons that you'll use set an action for that button(what the button will do after clicking it)
+		// Example:
+		encrypt_btn.setOnAction(new EventHandler<ActionEvent>() {
+	        @Override
+	        public void handle(ActionEvent event) {
+	        	 //String cipherText = yourEncryptonMethod(plainTextArea.getText());
+	        	 //cipherTextArea.setText(cipherText);
+	        }
+	    });
+
+
+	}
+
 	@FXML public void homophones(javafx.event.ActionEvent e) {
-		
-	mainLable.setText(btn_Homophones.getText());
-	
-	description.setText("put your description here");
-	
-	
-}
+		mainLable.setText("Homophones");
+		/* Put your algorithm description and requirements */
+		description.setText("put your description here");
 
-	
+		/* Show or hide the buttons and text fields your algorithm will use by setting the visibility to true or false */
+		encrypt_btn.setVisible(false);
+		decrypt_btn.setVisible(false);
+		hash_btn.setVisible(false);
+		hmac_btn.setVisible(false);
+		DigitalSignature_btn.setVisible(false);
+		key1TxtFieldSetVisible(false);
+		key2TxtFieldSetVisible(false);
+
+		/*
+		 *  You can set and get texts from the text fields using [ .setText( String ) - .getText() ]
+		 *  There's 4 text fields:
+		 *  plainTextArea
+		 *  cipherTextArea
+		 *  key1TextField
+		 *  key2TextField
+		 *
+		 */
+
+		/* Here create an object of your class so you can use your methods */
+
+		// After setting true to the buttons that you'll use set an action for that button(what the button will do after clicking it)
+		// Example:
+		encrypt_btn.setOnAction(new EventHandler<ActionEvent>() {
+	        @Override
+	        public void handle(ActionEvent event) {
+	        	 //String cipherText = yourEncryptonMethod(plainTextArea.getText());
+	        	 //cipherTextArea.setText(cipherText);
+	        }
+	    });
+
+
+	}
+
+
 	@FXML public void vigenereCipher(javafx.event.ActionEvent e) {
-		
-	mainLable.setText(btn_VigenereCipher.getText());
-	
-	description.setText("put your description here");
-	
-	
-}
-	
+		mainLable.setText("Vigenere cipher");
+		/* Put your algorithm description and requirements */
+		description.setText("put your description here");
+
+		/* Show or hide the buttons and text fields your algorithm will use by setting the visibility to true or false */
+		encrypt_btn.setVisible(false);
+		decrypt_btn.setVisible(false);
+		hash_btn.setVisible(false);
+		hmac_btn.setVisible(false);
+		DigitalSignature_btn.setVisible(false);
+		key1TxtFieldSetVisible(false);
+		key2TxtFieldSetVisible(false);
+
+		/*
+		 *  You can set and get texts from the text fields using [ .setText( String ) - .getText() ]
+		 *  There's 4 text fields:
+		 *  plainTextArea
+		 *  cipherTextArea
+		 *  key1TextField
+		 *  key2TextField
+		 *
+		 */
+
+		/* Here create an object of your class so you can use your methods */
+
+		// After setting true to the buttons that you'll use set an action for that button(what the button will do after clicking it)
+		// Example:
+		encrypt_btn.setOnAction(new EventHandler<ActionEvent>() {
+	        @Override
+	        public void handle(ActionEvent event) {
+	        	 //String cipherText = yourEncryptonMethod(plainTextArea.getText());
+	        	 //cipherTextArea.setText(cipherText);
+	        }
+	    });
+
+
+	}
+
 	@FXML public void DES(javafx.event.ActionEvent e) {
-		
-	mainLable.setText(btn_DES.getText());
-	
-	description.setText("put your description here");
-	
-	
-}
-	
+		mainLable.setText("DES &amp; triple DES");
+		/* Put your algorithm description and requirements */
+		description.setText("put your description here");
+
+		/* Show or hide the buttons and text fields your algorithm will use by setting the visibility to true or false */
+		encrypt_btn.setVisible(false);
+		decrypt_btn.setVisible(false);
+		hash_btn.setVisible(false);
+		hmac_btn.setVisible(false);
+		DigitalSignature_btn.setVisible(false);
+		key1TxtFieldSetVisible(false);
+		key2TxtFieldSetVisible(false);
+
+		/*
+		 *  You can set and get texts from the text fields using [ .setText( String ) - .getText() ]
+		 *  There's 4 text fields:
+		 *  plainTextArea
+		 *  cipherTextArea
+		 *  key1TextField
+		 *  key2TextField
+		 *
+		 */
+
+		/* Here create an object of your class so you can use your methods */
+
+		// After setting true to the buttons that you'll use set an action for that button(what the button will do after clicking it)
+		// Example:
+		encrypt_btn.setOnAction(new EventHandler<ActionEvent>() {
+	        @Override
+	        public void handle(ActionEvent event) {
+	        	 //String cipherText = yourEncryptonMethod(plainTextArea.getText());
+	        	 //cipherTextArea.setText(cipherText);
+	        }
+	    });
+
+
+	}
+
 	@FXML public void AES(javafx.event.ActionEvent e) {
-		
-	mainLable.setText(btn_AES.getText());
-	
-	description.setText("put your description here");
-	
-	
-}
-	
+		mainLable.setText("AES");
+		/* Put your algorithm description and requirements */
+		description.setText("put your description here");
+
+		/* Show or hide the buttons and text fields your algorithm will use by setting the visibility to true or false */
+		encrypt_btn.setVisible(false);
+		decrypt_btn.setVisible(false);
+		hash_btn.setVisible(false);
+		hmac_btn.setVisible(false);
+		DigitalSignature_btn.setVisible(false);
+		key1TxtFieldSetVisible(false);
+		key2TxtFieldSetVisible(false);
+
+		/*
+		 *  You can set and get texts from the text fields using [ .setText( String ) - .getText() ]
+		 *  There's 4 text fields:
+		 *  plainTextArea
+		 *  cipherTextArea
+		 *  key1TextField
+		 *  key2TextField
+		 *
+		 */
+
+		/* Here create an object of your class so you can use your methods */
+
+		// After setting true to the buttons that you'll use set an action for that button(what the button will do after clicking it)
+		// Example:
+		encrypt_btn.setOnAction(new EventHandler<ActionEvent>() {
+	        @Override
+	        public void handle(ActionEvent event) {
+	        	 //String cipherText = yourEncryptonMethod(plainTextArea.getText());
+	        	 //cipherTextArea.setText(cipherText);
+	        }
+	    });
+
+	}
+
 	@FXML public void SHA1(javafx.event.ActionEvent e) {
-		
-	mainLable.setText(btn_SHA1.getText());
-	
-	description.setText("put your description here");
-	
-	
-}
-	
+		mainLable.setText("SHA-1");
+		/* Put your algorithm description and requirements */
+		description.setText("put your description here");
+
+		/* Show or hide the buttons and text fields your algorithm will use by setting the visibility to true or false */
+		encrypt_btn.setVisible(false);
+		decrypt_btn.setVisible(false);
+		hash_btn.setVisible(false);
+		hmac_btn.setVisible(false);
+		DigitalSignature_btn.setVisible(false);
+		key1TxtFieldSetVisible(false);
+		key2TxtFieldSetVisible(false);
+
+		/*
+		 *  You can set and get texts from the text fields using [ .setText( String ) - .getText() ]
+		 *  There's 4 text fields:
+		 *  plainTextArea
+		 *  cipherTextArea
+		 *  key1TextField
+		 *  key2TextField
+		 *
+		 */
+
+		/* Here create an object of your class so you can use your methods */
+
+		// After setting true to the buttons that you'll use set an action for that button(what the button will do after clicking it)
+		// Example:
+		encrypt_btn.setOnAction(new EventHandler<ActionEvent>() {
+	        @Override
+	        public void handle(ActionEvent event) {
+	        	 //String cipherText = yourEncryptonMethod(plainTextArea.getText());
+	        	 //cipherTextArea.setText(cipherText);
+	        }
+	    });
+
+
+	}
+
 	@FXML public void SHA521(javafx.event.ActionEvent e) {
-		
-	mainLable.setText(btn_SHA521.getText());
-	
-	description.setText("put your description here");
-	
-	
-}
-	
+		mainLable.setText("SHA-512");
+		/* Put your algorithm description and requirements */
+		description.setText("put your description here");
+
+		/* Show or hide the buttons and text fields your algorithm will use by setting the visibility to true or false */
+		encrypt_btn.setVisible(false);
+		decrypt_btn.setVisible(false);
+		hash_btn.setVisible(false);
+		hmac_btn.setVisible(false);
+		DigitalSignature_btn.setVisible(false);
+		key1TxtFieldSetVisible(false);
+		key2TxtFieldSetVisible(false);
+
+		/*
+		 *  You can set and get texts from the text fields using [ .setText( String ) - .getText() ]
+		 *  There's 4 text fields:
+		 *  plainTextArea
+		 *  cipherTextArea
+		 *  key1TextField
+		 *  key2TextField
+		 *
+		 */
+
+		/* Here create an object of your class so you can use your methods */
+
+		// After setting true to the buttons that you'll use set an action for that button(what the button will do after clicking it)
+		// Example:
+		encrypt_btn.setOnAction(new EventHandler<ActionEvent>() {
+	        @Override
+	        public void handle(ActionEvent event) {
+	        	 //String cipherText = yourEncryptonMethod(plainTextArea.getText());
+	        	 //cipherTextArea.setText(cipherText);
+	        }
+	    });
+
+
+	}
+
 	@FXML public void HMAC(javafx.event.ActionEvent e) {
-		
-		mainLable.setText(btn_hmacLayout.getText());
-		
+		mainLable.setText("HMAC");
+		/* Put your algorithm description and requirements */
 		description.setText("put your description here");
-		
-		
+
+		/* Show or hide the buttons and text fields your algorithm will use by setting the visibility to true or false */
+		encrypt_btn.setVisible(false);
+		decrypt_btn.setVisible(false);
+		hash_btn.setVisible(false);
+		hmac_btn.setVisible(false);
+		DigitalSignature_btn.setVisible(false);
+		key1TxtFieldSetVisible(false);
+		key2TxtFieldSetVisible(false);
+
+		/*
+		 *  You can set and get texts from the text fields using [ .setText( String ) - .getText() ]
+		 *  There's 4 text fields:
+		 *  plainTextArea
+		 *  cipherTextArea
+		 *  key1TextField
+		 *  key2TextField
+		 *
+		 */
+
+		/* Here create an object of your class so you can use your methods */
+
+		// After setting true to the buttons that you'll use set an action for that button(what the button will do after clicking it)
+		// Example:
+		encrypt_btn.setOnAction(new EventHandler<ActionEvent>() {
+	        @Override
+	        public void handle(ActionEvent event) {
+	        	 //String cipherText = yourEncryptonMethod(plainTextArea.getText());
+	        	 //cipherTextArea.setText(cipherText);
+	        }
+	    });
+
+
 	}
-	
+
 	@FXML public void RSA(javafx.event.ActionEvent e) {
-		
-		mainLable.setText(btn_RSA.getText());
-		
+		mainLable.setText("RSA");
+		/* Put your algorithm description and requirements */
 		description.setText("put your description here");
-		
-		
+
+		/* Show or hide the buttons and text fields your algorithm will use by setting the visibility to true or false */
+		encrypt_btn.setVisible(false);
+		decrypt_btn.setVisible(false);
+		hash_btn.setVisible(false);
+		hmac_btn.setVisible(false);
+		DigitalSignature_btn.setVisible(false);
+		key1TxtFieldSetVisible(false);
+		key2TxtFieldSetVisible(false);
+
+		/*
+		 *  You can set and get texts from the text fields using [ .setText( String ) - .getText() ]
+		 *  There's 4 text fields:
+		 *  plainTextArea
+		 *  cipherTextArea
+		 *  key1TextField
+		 *  key2TextField
+		 *
+		 */
+
+		/* Here create an object of your class so you can use your methods */
+
+		// After setting true to the buttons that you'll use set an action for that button(what the button will do after clicking it)
+		// Example:
+		encrypt_btn.setOnAction(new EventHandler<ActionEvent>() {
+	        @Override
+	        public void handle(ActionEvent event) {
+	        	 //String cipherText = yourEncryptonMethod(plainTextArea.getText());
+	        	 //cipherTextArea.setText(cipherText);
+	        }
+	    });
+
+
 	}
 
-@FXML public void DigitalEnvelope(javafx.event.ActionEvent e) {
-		
-		mainLable.setText(btn_DigitalEnvelopeLayout.getText());
-		
+	@FXML public void DigitalEnvelope(javafx.event.ActionEvent e) {
+		mainLable.setText("Digital Envelope");
+		/* Put your algorithm description and requirements */
 		description.setText("put your description here");
-		
-		
+
+		/* Show or hide the buttons and text fields your algorithm will use by setting the visibility to true or false */
+		encrypt_btn.setVisible(false);
+		decrypt_btn.setVisible(false);
+		hash_btn.setVisible(false);
+		hmac_btn.setVisible(false);
+		DigitalSignature_btn.setVisible(false);
+		key1TxtFieldSetVisible(false);
+		key2TxtFieldSetVisible(false);
+
+		/*
+		 *  You can set and get texts from the text fields using [ .setText( String ) - .getText() ]
+		 *  There's 4 text fields:
+		 *  plainTextArea
+		 *  cipherTextArea
+		 *  key1TextField
+		 *  key2TextField
+		 *
+		 */
+
+		/* Here create an object of your class so you can use your methods */
+
+		// After setting true to the buttons that you'll use set an action for that button(what the button will do after clicking it)
+		// Example:
+		encrypt_btn.setOnAction(new EventHandler<ActionEvent>() {
+	        @Override
+	        public void handle(ActionEvent event) {
+	        	 //String cipherText = yourEncryptonMethod(plainTextArea.getText());
+	        	 //cipherTextArea.setText(cipherText);
+	        }
+	    });
+
+
 	}
 
-	
+	// Ignore what down from here
+
+	public void key1TxtFieldSetVisible(boolean b) {
+		key1_label.setVisible(b);
+		key1TextField.setVisible(b);
+	}
+	public void key2TxtFieldSetVisible(boolean b) {
+		key2_label.setVisible(b);
+		key2TextField.setVisible(b);
+	}
 
 
 }
