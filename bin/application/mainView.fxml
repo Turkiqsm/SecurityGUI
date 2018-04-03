@@ -1,11 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:controller="application.ViewController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="665.0" prefWidth="829.0" style="-fx-background-color: #f5f5f5;" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainViewController">
    <children>
-      <Button onAction="#buttonAction" layoutX="271.0" layoutY="359.0" mnemonicParsing="false" text="Button"  />
+      <AnchorPane layoutX="185.0" prefHeight="665.0" prefWidth="590.0" style="-fx-background-color: #ffff;">
+         <children>
+            <Label id="mainLabel" fx:id="mainLable" layoutX="76.0" layoutY="14.0" prefHeight="70.0" prefWidth="504.0" text="MainLabel" textFill="#8a8a8a">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="32.0" layoutY="202.0" prefHeight="443.0" prefWidth="612.0">
+               <children>
+                  <Label layoutX="12.0" layoutY="32.0" prefHeight="17.0" prefWidth="180.0" text="Plain Text" textFill="#8a8a8a" />
+                  <JFXTextField fx:id="key2TextField" focusColor="#4786c1" layoutX="14.0" layoutY="251.0" prefHeight="27.0" prefWidth="198.0" style="-fx-background-color: #f5f5f5#f5f5f5;" />
+                  <JFXButton fx:id="encrypt_btn" layoutX="448.0" layoutY="32.0" onAction="#encrypt" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: #F5f5f5;" text="Encrypt" />
+                  <JFXTextField fx:id="key1TextField" focusColor="#4786c1" layoutX="14.0" layoutY="203.0" prefHeight="27.0" prefWidth="198.0" style="-fx-background-color: #f5f5f5;" />
+                  <Label layoutX="12.0" layoutY="285.0" prefHeight="17.0" prefWidth="180.0" text="Cipher Text" textFill="#8a8a8a" />
+                  <JFXTextArea fx:id="plainTextArea" focusColor="#4786c1" layoutX="12.0" layoutY="49.0" prefHeight="130.0" prefWidth="401.0" style="-fx-background-color: #F5F5F5;" />
+                  <JFXTextArea fx:id="cipherTextArea" focusColor="#4786c1" layoutX="12.0" layoutY="302.0" prefHeight="130.0" prefWidth="401.0" style="-fx-background-color: #f5f5f5#f5f5f5;" />
+                  <Label fx:id="key1Label" layoutX="12.0" layoutY="186.0" prefHeight="17.0" prefWidth="180.0" text="Key1" textFill="#8a8a8a" />
+                  <Label fx:id="key2Label" layoutX="12.0" layoutY="234.0" prefHeight="17.0" prefWidth="180.0" text="Key2" textFill="#8a8a8a" />
+                  <JFXButton fx:id="decrypt_btn" layoutX="448.0" layoutY="83.0" onAction="#decrypt" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: #F5f5f5;" text="Decrypt" />
+                  <JFXButton fx:id="hash_btn" layoutX="448.0" layoutY="131.0" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: #F5f5f5;" text="Hash" />
+                  <JFXButton fx:id="hmac_btn" layoutX="448.0" layoutY="182.0" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: #F5f5f5;" text="HMAC" />
+                  <JFXButton fx:id="DigitalSignature_btn" layoutX="448.0" layoutY="234.0" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: #F5f5f5;" text="Digital signature" />
+                  <JFXButton fx:id="save_btn" layoutX="448.0" layoutY="282.0" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: #F5f5f5;" text="Save" />
+               </children>
+            </AnchorPane>
+            <Label fx:id="description" alignment="TOP_LEFT" layoutX="76.0" layoutY="84.0" prefHeight="130.0" prefWidth="556.0" text="des" textFill="#8a8a8a">
+               <font>
+                  <Font name="Andale Mono" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="665.0" prefWidth="215.0" style="-fx-background-color: #4786c1;">
+         <children>
+            <AnchorPane prefHeight="665.0" prefWidth="35.0" style="-fx-background-color: #ffff;">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets right="1.0" />
+               </opaqueInsets>
+            </AnchorPane>
+            <JFXButton id="btn_OneTimePad" fx:id="btn_OneTimePad" layoutX="35.0" layoutY="56.0" onAction="#oneTimePad" prefHeight="49.0" prefWidth="180.0" text="One Time Pad" textFill="WHITE" />
+            <JFXButton id="btn_PlayFair" fx:id="btn_PlayFair" layoutX="35.0" layoutY="105.0" onAction="#playFair" prefHeight="49.0" prefWidth="180.0" text="PlayFair" textFill="WHITE" /> 
+            <JFXButton id="btn_MonoAlphabetic" fx:id="btn_MonoAlphabetic" layoutX="35.0" layoutY="154.0" onAction="#monoAlphabetic" prefHeight="49.0" prefWidth="180.0" text="Mono-alphabetic" textFill="WHITE" />
+            <JFXButton id="btn_Homophones" fx:id="btn_Homophones" layoutX="35.0" layoutY="203.0" onAction="#homophones" prefHeight="49.0" prefWidth="180.0" text="Homophones" textFill="WHITE" />
+            <JFXButton id="btn_VigenereCipher" fx:id="btn_VigenereCipher" layoutX="35.0" layoutY="252.0" onAction="#vigenereCipher" prefHeight="49.0" prefWidth="180.0" text="Vigenere cipher" textFill="WHITE" />
+            <JFXButton id="btn_DES" fx:id="btn_DES" layoutX="35.0" layoutY="301.0" onAction="#DES" prefHeight="49.0" prefWidth="180.0" text="DES &amp; triple DES" textFill="WHITE" />
+            <JFXButton id="btm_AES" fx:id="btn_AES" layoutX="35.0" layoutY="350.0" onAction="#AES" prefHeight="49.0" prefWidth="180.0" text="AES" textFill="WHITE" />
+            <JFXButton id="btn_SHA1" fx:id="btn_SHA1" layoutX="35.0" layoutY="399.0" onAction="#SHA1" prefHeight="49.0" prefWidth="180.0" text="SHA-1" textFill="WHITE" />
+            <JFXButton id="btn_SHA521" fx:id="btn_SHA521" layoutX="35.0" layoutY="448.0" onAction="#SHA521" prefHeight="49.0" prefWidth="180.0" text="SHA-512" textFill="WHITE" />
+            <JFXButton id="btn_HMAC" fx:id="btn_hmacLayout" layoutX="35.0" layoutY="497.0" onAction="#HMAC" prefHeight="49.0" prefWidth="180.0" text="HMAC" textFill="WHITE" />
+            <JFXButton id="btn_RSA" fx:id="btn_RSA" layoutX="35.0" layoutY="546.0" onAction="#RSA" prefHeight="49.0" prefWidth="180.0" text="RSA" textFill="WHITE" />
+            <JFXButton id="btn_DigitalEnvelope " fx:id="btn_DigitalEnvelopeLayout" layoutX="35.0" layoutY="595.0" onAction="#DigitalEnvelope" prefHeight="49.0" prefWidth="180.0" text="Digital Envelope " textFill="WHITE" />
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
    </children>
 </AnchorPane>
