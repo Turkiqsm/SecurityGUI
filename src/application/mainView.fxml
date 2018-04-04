@@ -58,7 +58,7 @@
                </opaqueInsets>
             </AnchorPane>
             <JFXButton id="btn_OneTimePad" fx:id="btn_OneTimePad" layoutX="35.0" layoutY="56.0" onAction="#oneTimePad" prefHeight="49.0" prefWidth="180.0" text="One Time Pad" textFill="WHITE" />
-            <JFXButton id="btn_PlayFair" fx:id="btn_PlayFair" layoutX="35.0" layoutY="105.0" onAction="#playFair" prefHeight="49.0" prefWidth="180.0" text="PlayFair" textFill="WHITE" />
+            <JFXButton id="btn_PlayFair" fx:id="btn_PlayFair" layoutX="35.0" layoutY="105.0" onAction="#playFair" prefHeight="49.0" prefWidth="180.0" text="PlayFair" textFill="WHITE" /> 
             <JFXButton id="btn_MonoAlphabetic" fx:id="btn_MonoAlphabetic" layoutX="35.0" layoutY="154.0" onAction="#monoAlphabetic" prefHeight="49.0" prefWidth="180.0" text="Mono-alphabetic" textFill="WHITE" />
             <JFXButton id="btn_Homophones" fx:id="btn_Homophones" layoutX="35.0" layoutY="203.0" onAction="#homophones" prefHeight="49.0" prefWidth="180.0" text="Homophones" textFill="WHITE" />
             <JFXButton id="btn_VigenereCipher" fx:id="btn_VigenereCipher" layoutX="35.0" layoutY="252.0" onAction="#vigenereCipher" prefHeight="49.0" prefWidth="180.0" text="Vigenere cipher" textFill="WHITE" />
