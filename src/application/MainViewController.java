@@ -31,6 +31,7 @@ public class MainViewController implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
+		save_btn.setVisible(false);
 		btn_OneTimePad.fire();
 	}
 	
