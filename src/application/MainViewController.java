@@ -27,7 +27,7 @@ public class MainViewController implements Initializable{
 	public JFXTextArea plainTextArea,cipherTextArea;
 	@FXML 
 	public JFXTextField key1TextField, key2TextField;
-	
+	AES aes;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
@@ -283,15 +283,15 @@ public class MainViewController implements Initializable{
 	@FXML public void AES(javafx.event.ActionEvent e) {
 		mainLable.setText("AES");
 		/* Put your algorithm description and requirements */
-		description.setText("put your description here");
+		description.setText("*your key must be 16 bytes.");
 		
 		/* Show or hide the buttons and text fields your algorithm will use by setting the visibility to true or false */
-		encrypt_btn.setVisible(false);
-		decrypt_btn.setVisible(false);
+		encrypt_btn.setVisible(true);
+		decrypt_btn.setVisible(true);
 		hash_btn.setVisible(false);
 		hmac_btn.setVisible(false);
 		DigitalSignature_btn.setVisible(false);
-		key1TxtFieldSetVisible(false);
+		key1TxtFieldSetVisible(true);
 		key2TxtFieldSetVisible(false);
 		
 		/*
@@ -305,14 +305,42 @@ public class MainViewController implements Initializable{
 		 */
 		
 		/* Here create an object of your class so you can use your methods */
-		
+
 		// After setting true to the buttons that you'll use set an action for that button(what the button will do after clicking it)
 		// Example: 
 		encrypt_btn.setOnAction(new EventHandler<ActionEvent>() {
 	        @Override
 	        public void handle(ActionEvent event) {
-	        	 //String cipherText = yourEncryptonMethod(plainTextArea.getText());
-	        	 //cipherTextArea.setText(cipherText);
+	        	
+	    		String key1= key1TextField.getText();
+	    		try {
+	    			aes = new AES(key1.getBytes());
+	    			aes.creaIv();
+				    String enc = aes.encrypt(plainTextArea.getText());
+				    cipherTextArea.setText(enc);
+	    		    
+	    		} catch (Exception e) {
+	    			// TODO Auto-generated catch block
+	    			e.printStackTrace();
+	    		}
+
+	        }
+	    });	
+		decrypt_btn.setOnAction(new EventHandler<ActionEvent>() {
+	        @Override
+	        public void handle(ActionEvent event) {
+	        	 
+	    		String key1= key1TextField.getText();
+	    		try {
+	    			aes = new AES(key1.getBytes());
+	    			aes.creaIv();
+				    String dec = aes.decrypt(cipherTextArea.getText());
+				    plainTextArea.setText(dec);
+	    		    
+	    		} catch (Exception e) {
+	    			// TODO Auto-generated catch block
+	    			e.printStackTrace();
+	    		}
 	        }
 	    });		
 	
