@@ -1,77 +1,50 @@
 package application;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
-import java.security.NoSuchAlgorithmException;
+import java.security.MessageDigest;
 import java.security.SecureRandom;
 import javax.crypto.Cipher;
-import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-
+import javax.xml.bind.DatatypeConverter;
 
 public class AES {
-
    
-    private final SecretKeySpec key;
-    private final Cipher cipher;
+    private  SecretKeySpec key;
+    private  Cipher cipher;
     private byte[] iv;
-
-    public AES(byte[] key) throws NoSuchAlgorithmException, NoSuchPaddingException, UnsupportedEncodingException {
-        this.key = new SecretKeySpec(key, "AES");
+    
+    public AES(){
+        try{
         cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-
+        creaIv();}
+        catch(Exception e){System.out.println(e.getMessage());}
     }
-
-    public void creaIv() {
+    
+    public void setKey(byte[] key){    
+            this.key = new SecretKeySpec(key, "AES");
+    }
+    
+    private void creaIv() {
         iv = new byte[cipher.getBlockSize()];
         SecureRandom r = new SecureRandom();
         r.nextBytes(iv);
     }
-
-    public byte[] getIv() {
-        return iv;
-    }
-
-    public void setIv(byte[] Riv) {
-        iv = Riv;
-    }
-    //--------------------------------------------------------------------------------------
+    
     public String encrypt(String data) throws Exception {
-        cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(getIv()));
+        cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(iv));
         byte[] Enctypt = cipher.doFinal(data.getBytes(StandardCharsets.UTF_8));
-        return new String (Enctypt);
+        return     DatatypeConverter.printBase64Binary(Enctypt);
+
     }
 
     public String decrypt(String enc) throws Exception {
-        cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(getIv()));
-        byte[] Decrypt = cipher.doFinal(enc.getBytes());
+        cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(iv));
+                byte[] encrypted = DatatypeConverter.parseBase64Binary(enc);
+        byte[] Decrypt = cipher.doFinal(encrypted);
         String result = new String(Decrypt, StandardCharsets.UTF_8);
         return result;
 
-    }
 
-    public byte[] toByte(Object obj) throws IOException {
-        byte[] bytes = null;
-        ByteArrayOutputStream bos = null;
-        ObjectOutputStream oos = null;
-        try {
-            bos = new ByteArrayOutputStream();
-            oos = new ObjectOutputStream(bos);
-            oos.writeObject(obj);
-            oos.flush();
-            bytes = bos.toByteArray();
-        } finally {
-            if (oos != null) {
-                oos.close();
-            }
-            if (bos != null) {
-                bos.close();
-            }
-        }
-        return bytes;
     }
 }

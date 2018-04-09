@@ -27,7 +27,7 @@ public class MainViewController implements Initializable{
 	public JFXTextArea plainTextArea,cipherTextArea;
 	@FXML 
 	public JFXTextField key1TextField, key2TextField;
-	AES aes;
+	AES aes = new AES();
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
@@ -242,7 +242,7 @@ public class MainViewController implements Initializable{
 	}
 	
 	@FXML public void DES(javafx.event.ActionEvent e) {	
-		mainLable.setText("DES &amp; triple DES");
+		mainLable.setText("DES & triple DES");
 		/* Put your algorithm description and requirements */
 		description.setText("put your description here");
 		
@@ -311,36 +311,36 @@ public class MainViewController implements Initializable{
 		encrypt_btn.setOnAction(new EventHandler<ActionEvent>() {
 	        @Override
 	        public void handle(ActionEvent event) {
-	        	
-	    		String key1= key1TextField.getText();
-	    		try {
-	    			aes = new AES(key1.getBytes());
-	    			aes.creaIv();
-				    String enc = aes.encrypt(plainTextArea.getText());
-				    cipherTextArea.setText(enc);
-	    		    
-	    		} catch (Exception e) {
-	    			// TODO Auto-generated catch block
-	    			e.printStackTrace();
-	    		}
+                    String key=key1TextField.getText();
+                    aes.setKey(key.getBytes());
+		    String enc;
+			try {
+				enc = aes.encrypt(plainTextArea.getText());
+				cipherTextArea.setText(enc);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		    
+			    
 
 	        }
 	    });	
 		decrypt_btn.setOnAction(new EventHandler<ActionEvent>() {
 	        @Override
 	        public void handle(ActionEvent event) {
-	        	 
-	    		String key1= key1TextField.getText();
-	    		try {
-	    			aes = new AES(key1.getBytes());
-	    			aes.creaIv();
-				    String dec = aes.decrypt(cipherTextArea.getText());
-				    plainTextArea.setText(dec);
-	    		    
-	    		} catch (Exception e) {
-	    			// TODO Auto-generated catch block
-	    			e.printStackTrace();
-	    		}
+                    String key=key1TextField.getText();
+                    aes.setKey(key.getBytes());
+		    String dec;
+			try {
+				dec = aes.decrypt(cipherTextArea.getText());
+				plainTextArea.setText(dec);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		    
+			    
 	        }
 	    });		
 	
@@ -349,12 +349,12 @@ public class MainViewController implements Initializable{
 	@FXML public void SHA1(javafx.event.ActionEvent e) {
 		mainLable.setText("SHA-1");
 		/* Put your algorithm description and requirements */
-		description.setText("put your description here");
+		description.setText("Message size should be < 2^64");
 		
 		/* Show or hide the buttons and text fields your algorithm will use by setting the visibility to true or false */
 		encrypt_btn.setVisible(false);
 		decrypt_btn.setVisible(false);
-		hash_btn.setVisible(false);
+		hash_btn.setVisible(true);
 		hmac_btn.setVisible(false);
 		DigitalSignature_btn.setVisible(false);
 		key1TxtFieldSetVisible(false);
@@ -374,11 +374,17 @@ public class MainViewController implements Initializable{
 		
 		// After setting true to the buttons that you'll use set an action for that button(what the button will do after clicking it)
 		// Example: 
-		encrypt_btn.setOnAction(new EventHandler<ActionEvent>() {
+		hash_btn.setOnAction(new EventHandler<ActionEvent>() {
 	        @Override
 	        public void handle(ActionEvent event) {
-	        	 //String cipherText = yourEncryptonMethod(plainTextArea.getText());
-	        	 //cipherTextArea.setText(cipherText);
+	        	 try {
+					String cipherText = SHA1.Hash(plainTextArea.getText());
+					cipherTextArea.setText(cipherText);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	        	 
 	        }
 	    });		
 	
