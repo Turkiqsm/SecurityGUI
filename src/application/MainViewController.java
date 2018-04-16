@@ -399,7 +399,7 @@ public class MainViewController implements Initializable{
 		/* Show or hide the buttons and text fields your algorithm will use by setting the visibility to true or false */
 		encrypt_btn.setVisible(false);
 		decrypt_btn.setVisible(false);
-		hash_btn.setVisible(false);
+		hash_btn.setVisible(true);
 		hmac_btn.setVisible(false);
 		DigitalSignature_btn.setVisible(false);
 		key1TxtFieldSetVisible(false);
@@ -419,11 +419,11 @@ public class MainViewController implements Initializable{
 		
 		// After setting true to the buttons that you'll use set an action for that button(what the button will do after clicking it)
 		// Example: 
-		encrypt_btn.setOnAction(new EventHandler<ActionEvent>() {
+		hash_btn.setOnAction(new EventHandler<ActionEvent>() {
 	        @Override
 	        public void handle(ActionEvent event) {
-	        	 //String cipherText = yourEncryptonMethod(plainTextArea.getText());
-	        	 //cipherTextArea.setText(cipherText);
+	        	 String hash = Sha512.getHash(plainTextArea.getText());
+	        	 cipherTextArea.setText(hash);
 	        }
 	    });		
 	
