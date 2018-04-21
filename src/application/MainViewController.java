@@ -205,15 +205,15 @@ public class MainViewController implements Initializable{
 	@FXML public void vigenereCipher(javafx.event.ActionEvent e) {
 		mainLable.setText("Vigenere cipher");
 		/* Put your algorithm description and requirements */
-		description.setText("put your description here");
+		description.setText("consists of several Caesar ciphers \nin sequence with different shift \nvalues.");
 		
 		/* Show or hide the buttons and text fields your algorithm will use by setting the visibility to true or false */
-		encrypt_btn.setVisible(false);
-		decrypt_btn.setVisible(false);
+		encrypt_btn.setVisible(true);
+		decrypt_btn.setVisible(true);
 		hash_btn.setVisible(false);
 		hmac_btn.setVisible(false);
 		DigitalSignature_btn.setVisible(false);
-		key1TxtFieldSetVisible(false);
+		key1TxtFieldSetVisible(true);
 		key2TxtFieldSetVisible(false);
 		
 		/*
@@ -227,14 +227,23 @@ public class MainViewController implements Initializable{
 		 */
 		
 		/* Here create an object of your class so you can use your methods */
+		VigenereCipher V = new VigenereCipher();
 		
 		// After setting true to the buttons that you'll use set an action for that button(what the button will do after clicking it)
 		// Example: 
 		encrypt_btn.setOnAction(new EventHandler<ActionEvent>() {
 	        @Override
 	        public void handle(ActionEvent event) {
-	        	 //String cipherText = yourEncryptonMethod(plainTextArea.getText());
-	        	 //cipherTextArea.setText(cipherText);
+	        	cipherTextArea.setText(V.encrypt(plainTextArea.getText(), key1TextField.getText()));
+	        	plainTextArea.setText("");
+	        }
+	    });
+		
+		decrypt_btn.setOnAction(new EventHandler<ActionEvent>() {
+	        @Override
+	        public void handle(ActionEvent event) {
+	        	plainTextArea.setText(V.decrypt(cipherTextArea.getText(), key1TextField.getText()));
+	        	cipherTextArea.setText("");
 	        }
 	    });
 		
