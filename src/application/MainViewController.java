@@ -2,6 +2,9 @@ package application;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.*;
 
 import com.jfoenix.controls.*;
@@ -17,17 +20,21 @@ public class MainViewController implements Initializable{
 	 * See the monoAlphabetic algorithm for a complete example of how to add your algorithm 
 	 */ 
 	
+	
 	@FXML
 	public JFXButton btn_OneTimePad, btn_PlayFair, btn_MonoAlphabetic, btn_Homophones, btn_VigenereCipher, btn_DES, btn_AES, btn_SHA1, btn_SHA521, btn_hmacLayout, btn_RSA, btn_DigitalEnvelopeLayout; 
 	@FXML
 	public Label mainLable, description, key1_label, key2_label;
 	@FXML
-	public JFXButton encrypt_btn, decrypt_btn, hash_btn, hmac_btn, DigitalSignature_btn, save_btn;
+	public JFXButton encrypt_btn, decrypt_btn, hash_btn, hmac_btn, DigitalSignature_btn, save_btn , generate_btn;
 	@FXML
 	public JFXTextArea plainTextArea,cipherTextArea;
 	@FXML 
-	public JFXTextField key1TextField, key2TextField;
+	public JFXTextField key1TextField, key2TextField, nTextlable, PlainTextLable, CipherTextLable;
 	AES aes = new AES();
+	
+	@FXML
+	public ChoiceBox choiceBox ;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
@@ -491,7 +498,11 @@ public class MainViewController implements Initializable{
 		DigitalSignature_btn.setVisible(false);
 		key1TxtFieldSetVisible(false);
 		key2TxtFieldSetVisible(false);
-		
+		// here you can set your size of bits in the choice box
+		ObservableList<String> bits = FXCollections.observableArrayList("1bit","2bit","3bit");
+		//set the default value for the choice box
+		choiceBox.setValue("1bit");
+		choiceBox.setItems(bits);
 		/*
 		 *  You can set and get texts from the text fields using [ .setText( String ) - .getText() ]
 		 *  There's 4 text fields:
@@ -511,6 +522,7 @@ public class MainViewController implements Initializable{
 	        public void handle(ActionEvent event) {
 	        	 //String cipherText = yourEncryptonMethod(plainTextArea.getText());
 	        	 //cipherTextArea.setText(cipherText);
+	        	///choiceBox.getValue()
 	        }
 	    });
 		
